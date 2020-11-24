@@ -36,10 +36,19 @@
 /*- Includes ----------------------------------------------------------------*/
 #include "Arduino.h"
 
+#if defined(ARDUINO_ARCH_ESP32)
+#define LED_BUILTIN 13
+#endif
+
+
 static inline void DAP_CONFIG_SWCLK_TCK_clr(void);
 static inline void DAP_CONFIG_SWCLK_TCK_set(void);
 static inline void DAP_CONFIG_SWDIO_TMS_clr(void);
 static inline void DAP_CONFIG_SWDIO_TMS_set(void);
+
+#if defined(ARDUINO_ARCH_ESP32)
+#define LED_BUILTIN 13
+#endif
 
 #define DAP_CONFIG_ENABLE_SWD
 //#define DAP_CONFIG_ENABLE_JTAG
